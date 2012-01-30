@@ -10,7 +10,9 @@
 
 @implementation AOPMethod
 
+@synthesize baseClass;
 @synthesize selector;
+@synthesize extendedSelector;
 @synthesize implementation;
 @synthesize method;
 @synthesize typeEncoding;
@@ -18,8 +20,14 @@
 @synthesize hasReturnValue;
 @synthesize returnValueLength;
 
-@synthesize beforeBlock;
-@synthesize afterBlock;
-@synthesize insteadBlock;
+@synthesize interceptors;
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        interceptors = [[NSMutableDictionary alloc] init];
+    }
+    return self;
+}
 
 @end

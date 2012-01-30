@@ -6,13 +6,13 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "AOPAspect.h"
 #import <objc/runtime.h>
 
 @interface AOPMethod : NSObject
 
+@property (strong, nonatomic) Class baseClass;
 @property (assign, nonatomic) SEL selector;
+@property (assign, nonatomic) SEL extendedSelector;
 @property (assign, nonatomic) IMP implementation;
 @property (assign, nonatomic) Method method;
 @property (assign, nonatomic) const char *typeEncoding;
@@ -20,8 +20,6 @@
 @property (assign, nonatomic) BOOL hasReturnValue;
 @property (assign, nonatomic) NSUInteger returnValueLength;
 
-@property (copy, nonatomic) aspect_block_t beforeBlock;
-@property (copy, nonatomic) aspect_block_t afterBlock;
-@property (copy, nonatomic) aspect_block_t insteadBlock;
+@property (strong, nonatomic, readonly) NSMutableDictionary *interceptors;
 
 @end
