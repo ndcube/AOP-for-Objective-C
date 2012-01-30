@@ -1,0 +1,244 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3A04D7B914CABE1D00A2852F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A04D7B814CABE1D00A2852F /* Foundation.framework */; };
+		3A04D7BF14CABE1D00A2852F /* AOPAspect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A04D7BE14CABE1D00A2852F /* AOPAspect.m */; };
+		3A04D7C714CABE7500A2852F /* AOPMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A04D7C514CABE7500A2852F /* AOPMethod.h */; };
+		3A04D7C814CABE7500A2852F /* AOPMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A04D7C614CABE7500A2852F /* AOPMethod.m */; };
+		3AF77A2414D716F200F5D77E /* AOPAspect.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A04D7BD14CABE1D00A2852F /* AOPAspect.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3A04D7B514CABE1D00A2852F /* libAOPAspect.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAOPAspect.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A04D7B814CABE1D00A2852F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3A04D7BC14CABE1D00A2852F /* AOPAspect-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AOPAspect-Prefix.pch"; sourceTree = "<group>"; };
+		3A04D7BD14CABE1D00A2852F /* AOPAspect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOPAspect.h; sourceTree = "<group>"; };
+		3A04D7BE14CABE1D00A2852F /* AOPAspect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AOPAspect.m; sourceTree = "<group>"; };
+		3A04D7C514CABE7500A2852F /* AOPMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOPMethod.h; sourceTree = "<group>"; };
+		3A04D7C614CABE7500A2852F /* AOPMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOPMethod.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3A04D7B214CABE1D00A2852F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A04D7B914CABE1D00A2852F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3A04D7AA14CABE1D00A2852F = {
+			isa = PBXGroup;
+			children = (
+				3A04D7BA14CABE1D00A2852F /* AOPAspect */,
+				3A04D7B714CABE1D00A2852F /* Frameworks */,
+				3A04D7B614CABE1D00A2852F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3A04D7B614CABE1D00A2852F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A04D7B514CABE1D00A2852F /* libAOPAspect.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3A04D7B714CABE1D00A2852F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3A04D7B814CABE1D00A2852F /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3A04D7BA14CABE1D00A2852F /* AOPAspect */ = {
+			isa = PBXGroup;
+			children = (
+				3A04D7BD14CABE1D00A2852F /* AOPAspect.h */,
+				3A04D7BE14CABE1D00A2852F /* AOPAspect.m */,
+				3A04D7C514CABE7500A2852F /* AOPMethod.h */,
+				3A04D7C614CABE7500A2852F /* AOPMethod.m */,
+				3A04D7BB14CABE1D00A2852F /* Supporting Files */,
+			);
+			path = AOPAspect;
+			sourceTree = "<group>";
+		};
+		3A04D7BB14CABE1D00A2852F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3A04D7BC14CABE1D00A2852F /* AOPAspect-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3A04D7B314CABE1D00A2852F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A04D7C714CABE7500A2852F /* AOPMethod.h in Headers */,
+				3AF77A2414D716F200F5D77E /* AOPAspect.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3A04D7B414CABE1D00A2852F /* AOPAspect */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A04D7C214CABE1D00A2852F /* Build configuration list for PBXNativeTarget "AOPAspect" */;
+			buildPhases = (
+				3A04D7B114CABE1D00A2852F /* Sources */,
+				3A04D7B214CABE1D00A2852F /* Frameworks */,
+				3A04D7B314CABE1D00A2852F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AOPAspect;
+			productName = AOPAspect;
+			productReference = 3A04D7B514CABE1D00A2852F /* libAOPAspect.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3A04D7AC14CABE1D00A2852F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 3A04D7AF14CABE1D00A2852F /* Build configuration list for PBXProject "AOPAspect" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3A04D7AA14CABE1D00A2852F;
+			productRefGroup = 3A04D7B614CABE1D00A2852F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3A04D7B414CABE1D00A2852F /* AOPAspect */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3A04D7B114CABE1D00A2852F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A04D7BF14CABE1D00A2852F /* AOPAspect.m in Sources */,
+				3A04D7C814CABE7500A2852F /* AOPMethod.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3A04D7C014CABE1D00A2852F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3A04D7C114CABE1D00A2852F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3A04D7C314CABE1D00A2852F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/AOPAspect.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AOPAspect/AOPAspect-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		3A04D7C414CABE1D00A2852F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/AOPAspect.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AOPAspect/AOPAspect-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3A04D7AF14CABE1D00A2852F /* Build configuration list for PBXProject "AOPAspect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A04D7C014CABE1D00A2852F /* Debug */,
+				3A04D7C114CABE1D00A2852F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A04D7C214CABE1D00A2852F /* Build configuration list for PBXNativeTarget "AOPAspect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A04D7C314CABE1D00A2852F /* Debug */,
+				3A04D7C414CABE1D00A2852F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3A04D7AC14CABE1D00A2852F /* Project object */;
+}
