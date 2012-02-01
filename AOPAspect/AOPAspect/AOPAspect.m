@@ -44,27 +44,26 @@ static AOPAspect *aspectManager = NULL;
 #pragma mark - Object lifecycle
 
 
-- (id)init {
-    self = [super init];
-    if (self) {
-        originalMethods = [[NSMutableDictionary alloc] init];
-        forwardingMethod = [[AOPMethod alloc] init];
-        forwardingMethod.selector = @selector(forwardingTargetForSelector:);
-        forwardingMethod.implementation = class_getMethodImplementation([self class], forwardingMethod.selector);
-        forwardingMethod.method = class_getInstanceMethod([self class], forwardingMethod.selector);
-        forwardingMethod.typeEncoding = method_getTypeEncoding(forwardingMethod.method);
-        methodInvoker = ^(NSInvocation *invocation) {
-            [invocation invoke];
-        };
-        synchronizerQueue = dispatch_queue_create("Synchronizer queue - AOPAspect", DISPATCH_QUEUE_SERIAL);
-    }
-    return self;
-}
-
 + (void)initialize {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         aspectManager = [[AOPAspect alloc] init];
+        aspectManager->originalMethods = [[NSMutableDictionary alloc] init];
+        
+        // Store forwarding method properties
+        aspectManager->forwardingMethod = [[AOPMethod alloc] init];
+        aspectManager->forwardingMethod.selector = @selector(forwardingTargetForSelector:);
+        aspectManager->forwardingMethod.implementation = class_getMethodImplementation([self class], aspectManager->forwardingMethod.selector);
+        aspectManager->forwardingMethod.method = class_getInstanceMethod([self class], aspectManager->forwardingMethod.selector);
+        aspectManager->forwardingMethod.typeEncoding = method_getTypeEncoding(aspectManager->forwardingMethod.method);
+        
+        // Store the default method invoker block
+        aspectManager->methodInvoker = ^(NSInvocation *invocation) {
+            [invocation invoke];
+        };
+        
+        // Create queue for synchronization
+        aspectManager->synchronizerQueue = dispatch_queue_create("Synchronizer queue - AOPAspect", DISPATCH_QUEUE_SERIAL);
     });
 }
 
@@ -124,6 +123,10 @@ static AOPAspect *aspectManager = NULL;
 
 
 - (NSString *)registerClass:(Class)aClass withSelector:(SEL)selector at:(AOPAspectInspectorType)type usingBlock:(aspect_block_t)block {
+    NSParameterAssert(aClass);
+    NSParameterAssert(selector);
+    NSParameterAssert(block);
+    
     NSString *key = [self keyWithClass:aClass selector:selector];
     __block AOPMethod *method;
     
@@ -147,8 +150,9 @@ static AOPAspect *aspectManager = NULL;
         // Add the default method invoker block
         [self addInterceptorBlock:methodInvoker toMethod:method withType:AOPAspectInspectorTypeInstead];
         
-        // Instance method only for now...
+        // Get the instance method
         method.method = class_getInstanceMethod(aClass, selector);
+        NSAssert(method.method, @"No instance method found for the given selector. Only instance methods can be intercepted.");
         
         // Get the original method implementation
         if (method.returnValueLength > sizeof(double)) {
