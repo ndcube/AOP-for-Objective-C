@@ -7,7 +7,6 @@
 //
 
 #import "AOPAspect.h"
-#import "AOPMethod.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
 
@@ -34,8 +33,10 @@ static AOPAspect *aspectManager = NULL;
 
 
 @implementation AOPAspect {
-    NSMutableDictionary *originalMethods;
-    AOPMethod *forwardingMethod;
+    
+    // interceptorStorage (dict) -> interceptorTypes (dict) -> interceptors (array) -> interceptor (dict) -> block
+    NSMutableDictionary *interceptorStorage; // Ok, this is ugly
+    
     aspect_block_t methodInvoker;
     dispatch_queue_t synchronizerQueue;
 }
@@ -48,14 +49,7 @@ static AOPAspect *aspectManager = NULL;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         aspectManager = [[AOPAspect alloc] init];
-        aspectManager->originalMethods = [[NSMutableDictionary alloc] init];
-        
-        // Store forwarding method properties
-        aspectManager->forwardingMethod = [[AOPMethod alloc] init];
-        aspectManager->forwardingMethod.selector = @selector(forwardingTargetForSelector:);
-        aspectManager->forwardingMethod.implementation = class_getMethodImplementation([self class], @selector(baseClassForwardingTargetForSelector:));
-        aspectManager->forwardingMethod.method = class_getInstanceMethod([self class], @selector(baseClassForwardingTargetForSelector:));
-        aspectManager->forwardingMethod.typeEncoding = method_getTypeEncoding(aspectManager->forwardingMethod.method);
+        aspectManager->interceptorStorage = [[NSMutableDictionary alloc] init];
         
         // Store the default method invoker block
         aspectManager->methodInvoker = ^(NSInvocation *invocation) {
@@ -87,85 +81,87 @@ static AOPAspect *aspectManager = NULL;
     return NSSelectorFromString([self keyWithClass:aClass selector:selector]);
 }
 
+// Stores the current class in the thread dictionary.
+- (void)setCurrentClass:(Class)aClass {
+    [[[NSThread currentThread] threadDictionary] setObject:aClass forKey:AOPAspectCurrentClassKey];
+}
+
+- (Class)currentClass {
+    return [[[NSThread currentThread] threadDictionary] objectForKey:AOPAspectCurrentClassKey];
+}
+
+- (NSString *)identifierWithClass:(Class)aClass selector:(SEL)aSelector dictionary:(NSDictionary *)dictionary {
+    return [NSString stringWithFormat:@"%@ | %@ | %p", NSStringFromClass(aClass), NSStringFromSelector(aSelector), dictionary];
+}
 
 #pragma mark - Interceptor registration
 
 
-- (NSString *)addInterceptorBlock:(aspect_block_t)block toMethod:(AOPMethod *)method withType:(AOPAspectInspectorType)type {
+- (NSString *)storeInterceptorBlock:(aspect_block_t)block withClass:(Class)aClass selector:(SEL)aSelector type:(AOPAspectInspectorType)type {
     
-    __block NSDictionary *interceptor;
+    NSString *key = [self keyWithClass:aClass selector:aSelector];
+
+    // Get the type dictionary
+    NSMutableDictionary *interceptorTypeDictionary = [interceptorStorage objectForKey:key];
     
-    dispatch_sync(synchronizerQueue, ^{
-        NSMutableArray *interceptors = [method.interceptors objectForKey:[NSNumber numberWithInt:type]];
-        
-        // Initialize new array (if needed) for storing interceptors. One array for each type: before, instead, after
-        if (!interceptors) {
-            interceptors = [[NSMutableArray alloc] init];
-            [method.interceptors setObject:interceptors forKey:[NSNumber numberWithInt:type]];
+    // Create a type dictionary if needed
+    if (!interceptorTypeDictionary) {
+        interceptorTypeDictionary = [[NSMutableDictionary alloc] init];
+        [interceptorStorage setObject:interceptorTypeDictionary forKey:key];
+    }
+    
+    // Get the interceptors array
+    NSMutableArray *interceptors = [interceptorTypeDictionary objectForKey:[NSNumber numberWithInt:type]];
+    
+    // Initialize a new array (if needed) for storing interceptors. One array for each type: before, instead, after
+    if (!interceptors) {
+        interceptors = [[NSMutableArray alloc] init];
+        [interceptorTypeDictionary setObject:interceptors forKey:[NSNumber numberWithInt:type]];
+    }
+    
+    // Wrap the interceptor into an NSDictionary so its address will be unique
+    NSDictionary *interceptor = [NSDictionary dictionaryWithObject:block forKey:[NSDate date]];
+    
+    // Remove the default methodinvoker in case of a new "instead" type interceptor
+    if (type == AOPAspectInspectorTypeInstead && interceptors.count == 1) {
+        if ([[[interceptors lastObject] allValues] lastObject] == (id)methodInvoker) {
+            [interceptors removeLastObject];
         }
-        
-        // Wrap the interceptor into an NSDictionary so its address will be unique
-        interceptor = [NSDictionary dictionaryWithObject:block forKey:[NSDate date]];
-        
-        // Remove the default methodinvoker in case of a new "instead" type interceptor
-        if (type == AOPAspectInspectorTypeInstead && interceptors.count == 1) {
-            if ([[[interceptors lastObject] allValues] lastObject] == (id)methodInvoker) {
-                [interceptors removeLastObject];
-            }
-        }
-        
-        [interceptors addObject:interceptor];
-    });
+    }
     
-    // Return a unique key that can be used to identify a certain interceptor
-    return [NSString stringWithFormat:@"%p", interceptor];
+    [interceptors addObject:interceptor];
+    
+    // Return a unique identifier that can be used to identify a certain interceptor
+    return [self identifierWithClass:aClass selector:aSelector dictionary:interceptor];
 }
 
-
-- (NSString *)registerClass:(Class)aClass withSelector:(SEL)selector at:(AOPAspectInspectorType)type usingBlock:(aspect_block_t)block {
+- (NSString *)registerClass:(Class)aClass withSelector:(SEL)aSelector type:(AOPAspectInspectorType)type usingBlock:(aspect_block_t)block {
     NSParameterAssert(aClass);
-    NSParameterAssert(selector);
+    NSParameterAssert(aSelector);
     NSParameterAssert(block);
     
-    NSString *key = [self keyWithClass:aClass selector:selector];
-    __block AOPMethod *method;
-    
-    dispatch_sync(synchronizerQueue, ^{
-        method = [originalMethods objectForKey:key];
-    });
-    
-    // Setup the new method
-    if (!method) {
-        NSMethodSignature *methodSignature = [aClass instanceMethodSignatureForSelector:selector];
-        
-        // Store method attributes
-        method = [[AOPMethod alloc] init];
-        method.baseClass = aClass;
-        method.selector = selector;
-        method.extendedSelector = [self extendedSelectorWithClass:aClass selector:selector];
-        method.hasReturnValue = [methodSignature methodReturnLength] > 0;
-        method.methodSignature = methodSignature;
-        method.returnValueLength = [methodSignature methodReturnLength];
-        
-        // Add the default method invoker block
-        [self addInterceptorBlock:methodInvoker toMethod:method withType:AOPAspectInspectorTypeInstead];
+    // Hook a new method
+    if (![self respondsToSelector:[self extendedSelectorWithClass:aClass selector:aSelector]]) {
         
         // Get the instance method
-        method.method = class_getInstanceMethod(aClass, selector);
-        NSAssert(method.method, @"No instance method found for the given selector. Only instance methods can be intercepted.");
+        Method method = class_getInstanceMethod(aClass, aSelector);
+        NSAssert(method, @"No instance method found for the given selector. Only instance methods can be intercepted.");
+        
+        IMP implementation;
+        NSMethodSignature *methodSignature = [aClass instanceMethodSignatureForSelector:aSelector];
         
         // Get the original method implementation
-        if (method.returnValueLength > sizeof(double)) {
-            method.implementation = class_getMethodImplementation_stret(aClass, selector);
+        if ([methodSignature methodReturnLength] > sizeof(double)) {
+            implementation = class_getMethodImplementation_stret(aClass, aSelector);
         }
         else {
-            method.implementation = class_getMethodImplementation(aClass, selector);
+            implementation = class_getMethodImplementation(aClass, aSelector);
         }
                 
         IMP interceptor = NULL;
         
         // Check method return type
-        if (method.hasReturnValue && method.returnValueLength > sizeof(double)) {
+        if ([methodSignature methodReturnLength] > sizeof(double)) {
             interceptor = (IMP)_objc_msgForward_stret;
         }
         else {
@@ -173,61 +169,97 @@ static AOPAspect *aspectManager = NULL;
         }
         
         // Change the implementation
-        method_setImplementation(method.method, interceptor);
+        method_setImplementation(method, interceptor);
         
+        // Get the forwarding method properties
+        SEL forwardingMethodSelector = @selector(forwardingTargetForSelector:);
+        IMP forwardingMethodImplementation = class_getMethodImplementation([self class], @selector(baseClassForwardingTargetForSelector:));
+        Method forwardingMethod = class_getInstanceMethod([self class], @selector(baseClassForwardingTargetForSelector:));
+        const char *forwardingMethodTypeEncoding = method_getTypeEncoding(forwardingMethod);
+        
+        // Add the original forwarding method with the extended selector to self
+        IMP originalForwardingMethodImp = class_getMethodImplementation(aClass, forwardingMethodSelector);
+        SEL extendedForwardingSelector = [self extendedSelectorWithClass:aClass selector:forwardingMethodSelector];
+        class_addMethod([self class], extendedForwardingSelector, originalForwardingMethodImp, forwardingMethodTypeEncoding);
+
         // Initiate hook to self on the base object
-        class_addMethod(aClass, forwardingMethod.selector, forwardingMethod.implementation, forwardingMethod.typeEncoding);
+        class_replaceMethod(aClass, forwardingMethodSelector, forwardingMethodImplementation, forwardingMethodTypeEncoding);
+
+        SEL extendedSelector = [self extendedSelectorWithClass:aClass selector:aSelector];
+        const char *typeEncoding = method_getTypeEncoding(method);
         
         // Add the original method with the extended selector to self
-        class_addMethod([self class], method.extendedSelector, method.implementation, method.typeEncoding);
-        
+        class_addMethod([self class], extendedSelector, implementation, typeEncoding);
+
+        // Add the default method invoker block
         dispatch_sync(synchronizerQueue, ^{
-            [originalMethods setObject:method forKey:key];
+            [self storeInterceptorBlock:methodInvoker withClass:aClass selector:aSelector type:AOPAspectInspectorTypeInstead];
         });
     }
     
-    // Set the interceptor block
-    return [self addInterceptorBlock:block toMethod:method withType:type];
+    // Store the interceptor block
+    __block NSString *identifier;
+    dispatch_sync(synchronizerQueue, ^{
+        identifier = [self storeInterceptorBlock:block withClass:aClass selector:aSelector type:type];
+    });
+    
+    return identifier;
 }
 
 - (NSString *)interceptClass:(Class)aClass beforeExecutingSelector:(SEL)selector usingBlock:(aspect_block_t)block {
-    return [self registerClass:aClass withSelector:selector at:AOPAspectInspectorTypeBefore usingBlock:block];
+    return [self registerClass:aClass withSelector:selector type:AOPAspectInspectorTypeBefore usingBlock:block];
 }
 
 - (NSString *)interceptClass:(Class)aClass afterExecutingSelector:(SEL)selector usingBlock:(aspect_block_t)block {
-    return [self registerClass:aClass withSelector:selector at:AOPAspectInspectorTypeAfter usingBlock:block];
+    return [self registerClass:aClass withSelector:selector type:AOPAspectInspectorTypeAfter usingBlock:block];
 }
 
 - (NSString *)interceptClass:(Class)aClass insteadExecutingSelector:(SEL)selector usingBlock:(aspect_block_t)block {
-    return [self registerClass:aClass withSelector:selector at:AOPAspectInspectorTypeInstead usingBlock:block];
+    return [self registerClass:aClass withSelector:selector type:AOPAspectInspectorTypeInstead usingBlock:block];
 }
 
-- (void)deregisterMethod:(AOPMethod *)method {
+- (void)deregisterMethodWithClass:(Class)aClass selector:(SEL)aSelector {
     
-    method_setImplementation(method.method, method.implementation);
-    [originalMethods removeObjectForKey:[self keyWithClass:method.baseClass selector:method.selector]];
+    Method method = class_getInstanceMethod(aClass, aSelector);
+    IMP implementation;
+    
+    if ([[aClass instanceMethodSignatureForSelector:aSelector] methodReturnLength] > sizeof(double)) {
+        implementation = class_getMethodImplementation_stret([self class], [self extendedSelectorWithClass:aClass selector:aSelector]);
+    }
+    else {
+        implementation = class_getMethodImplementation([self class], [self extendedSelectorWithClass:aClass selector:aSelector]);
+    }
+
+    method_setImplementation(method, implementation);
+    
+    [interceptorStorage removeObjectForKey:[self keyWithClass:aClass selector:aSelector]];
 }
 
-- (void)removeInterceptorWithKey:(NSString *)key {
+- (void)removeInterceptorWithIdentifier:(NSString *)identifier {
+
+    // Get the class and the selector from the identifier
+    NSArray *components = [identifier componentsSeparatedByString:@" | "];
+    Class aClass = NSClassFromString([components objectAtIndex:0]);
+    SEL selector = NSSelectorFromString([components objectAtIndex:1]);
     
     dispatch_sync(synchronizerQueue, ^{
         
-        // Search for the interceptor that belongs to the given key
-        for (AOPMethod *method in [originalMethods allValues]) {
+        // Search for the interceptor that belongs to the given identifier
+        for (NSDictionary *interceptorTypeDictionary in [interceptorStorage allValues]) {
             NSInteger interceptorCount = 0;
             
             for (int i = 0; i < 3; i++) {
-                NSMutableArray *interceptors = [method.interceptors objectForKey:[NSNumber numberWithInt:i]];
+                NSMutableArray *interceptors = [interceptorTypeDictionary objectForKey:[NSNumber numberWithInt:i]];
                 
                 for (NSDictionary *dictionary in [NSArray arrayWithArray:interceptors]) {
                     
                     // If found remove the interceptor
-                    if ([[NSString stringWithFormat:@"%p", dictionary] isEqualToString:key]) {
+                    if ([[self identifierWithClass:aClass selector:selector dictionary:dictionary] isEqualToString:identifier]) {
                         [interceptors removeObject:dictionary];
                         
                         // Add back the default method invoker block in case of no more "instead" type blocks
                         if (i == AOPAspectInspectorTypeInstead && interceptors.count == 0) {
-                            [self addInterceptorBlock:methodInvoker toMethod:method withType:i];
+                            [self storeInterceptorBlock:methodInvoker withClass:aClass selector:selector type:i];
                         }
                     }
                 }
@@ -236,8 +268,8 @@ static AOPAspect *aspectManager = NULL;
             }
             
             // If only the default methodinvoker interceptor remained than deregister the method to improve performance
-            if (interceptorCount == 1 && [[[[method.interceptors objectForKey:[NSNumber numberWithInt:AOPAspectInspectorTypeInstead]] lastObject] allValues] lastObject] == (id)methodInvoker) {
-                [self deregisterMethod:method];
+            if (interceptorCount == 1 && [[[[interceptorTypeDictionary objectForKey:[NSNumber numberWithInt:AOPAspectInspectorTypeInstead]] lastObject] allValues] lastObject] == (id)methodInvoker) {
+                [self deregisterMethodWithClass:aClass selector:selector];
             }
         }
     });
@@ -249,30 +281,39 @@ static AOPAspect *aspectManager = NULL;
 
 - (id)baseClassForwardingTargetForSelector:(SEL)aSelector {
     
-    // Store the current class in the thread dictionary
-    [[[NSThread currentThread] threadDictionary] setObject:[self class] forKey:AOPAspectCurrentClassKey];
+    // In case the selector is not implemented on the base class
+    if (![self respondsToSelector:aSelector]) {
+        SEL extendedForwardingMethodSelector = [[AOPAspect instance] extendedSelectorWithClass:[self class] selector:@selector(forwardingTargetForSelector:)];
+        
+        // Invoke the original forwardingTargetForSelector method
+        return method_invoke([AOPAspect instance], class_getInstanceMethod([AOPAspect class], extendedForwardingMethodSelector), aSelector);
+    }
+    
+    // Store the current class
+    [[AOPAspect instance] setCurrentClass:[self class]];
     
     return [AOPAspect instance];
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
-    __block NSMethodSignature *methodSignature;
-    
-    dispatch_sync(synchronizerQueue, ^{
-        methodSignature = [(AOPMethod *)[originalMethods objectForKey:[self keyWithClass:[[[NSThread currentThread] threadDictionary] objectForKey:AOPAspectCurrentClassKey] selector:aSelector]] methodSignature];
-    });
-    
-    return methodSignature;
+    return [[self currentClass] instanceMethodSignatureForSelector:aSelector];
 }
 
-- (void)executeInterceptorsOfMethod:(AOPMethod *)method withInvocation:(NSInvocation *)anInvocation {
+- (void)executeInterceptorsWithClass:(Class)aClass selector:(SEL)aSelector invocation:(NSInvocation *)anInvocation {
     
+    NSString *key = [self keyWithClass:aClass selector:aSelector];
+    __block NSMutableDictionary *interceptorTypeDictionary;
+    
+    dispatch_sync(synchronizerQueue, ^{
+        interceptorTypeDictionary = [interceptorStorage objectForKey:key];
+    });
+
     // Executes interceptors before, instead and after
     for (int i = 0; i < 3; i++) {
         __block NSArray *interceptors;
 
         dispatch_sync(synchronizerQueue, ^{
-            interceptors = [NSArray arrayWithArray:[method.interceptors objectForKey:[NSNumber numberWithInt:i]]];
+            interceptors = [NSArray arrayWithArray:[interceptorTypeDictionary objectForKey:[NSNumber numberWithInt:i]]];
         });
 
         for (NSDictionary *interceptor in interceptors) {
@@ -283,15 +324,14 @@ static AOPAspect *aspectManager = NULL;
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
-    __block AOPMethod *method;
-    
-    dispatch_sync(synchronizerQueue, ^{
-        method = [originalMethods objectForKey:[self keyWithClass:[[[NSThread currentThread] threadDictionary] objectForKey:AOPAspectCurrentClassKey] selector:anInvocation.selector]];
 
-        [anInvocation setSelector:method.extendedSelector];
-    });
+    Class aClass = [self currentClass];
+    SEL selector = anInvocation.selector;
     
-    [self executeInterceptorsOfMethod:method withInvocation:anInvocation];
+    SEL extendedSelector = [self extendedSelectorWithClass:aClass selector:selector];
+    [anInvocation setSelector:extendedSelector];
+
+    [self executeInterceptorsWithClass:aClass selector:selector invocation:anInvocation];
 }
 
 @end

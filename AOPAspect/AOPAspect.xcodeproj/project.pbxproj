@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		3A04D7B914CABE1D00A2852F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A04D7B814CABE1D00A2852F /* Foundation.framework */; };
 		3A04D7BF14CABE1D00A2852F /* AOPAspect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A04D7BE14CABE1D00A2852F /* AOPAspect.m */; };
-		3A04D7C714CABE7500A2852F /* AOPMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A04D7C514CABE7500A2852F /* AOPMethod.h */; };
-		3A04D7C814CABE7500A2852F /* AOPMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A04D7C614CABE7500A2852F /* AOPMethod.m */; };
 		3AF77A2414D716F200F5D77E /* AOPAspect.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A04D7BD14CABE1D00A2852F /* AOPAspect.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -20,8 +18,6 @@
 		3A04D7BC14CABE1D00A2852F /* AOPAspect-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AOPAspect-Prefix.pch"; sourceTree = "<group>"; };
 		3A04D7BD14CABE1D00A2852F /* AOPAspect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOPAspect.h; sourceTree = "<group>"; };
 		3A04D7BE14CABE1D00A2852F /* AOPAspect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AOPAspect.m; sourceTree = "<group>"; };
-		3A04D7C514CABE7500A2852F /* AOPMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOPMethod.h; sourceTree = "<group>"; };
-		3A04D7C614CABE7500A2852F /* AOPMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOPMethod.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +62,6 @@
 			children = (
 				3A04D7BD14CABE1D00A2852F /* AOPAspect.h */,
 				3A04D7BE14CABE1D00A2852F /* AOPAspect.m */,
-				3A04D7C514CABE7500A2852F /* AOPMethod.h */,
-				3A04D7C614CABE7500A2852F /* AOPMethod.m */,
 				3A04D7BB14CABE1D00A2852F /* Supporting Files */,
 			);
 			path = AOPAspect;
@@ -88,7 +82,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A04D7C714CABE7500A2852F /* AOPMethod.h in Headers */,
 				3AF77A2414D716F200F5D77E /* AOPAspect.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,7 +137,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A04D7BF14CABE1D00A2852F /* AOPAspect.m in Sources */,
-				3A04D7C814CABE7500A2852F /* AOPMethod.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
