@@ -53,8 +53,8 @@ static AOPAspect *aspectManager = NULL;
         // Store forwarding method properties
         aspectManager->forwardingMethod = [[AOPMethod alloc] init];
         aspectManager->forwardingMethod.selector = @selector(forwardingTargetForSelector:);
-        aspectManager->forwardingMethod.implementation = class_getMethodImplementation([self class], aspectManager->forwardingMethod.selector);
-        aspectManager->forwardingMethod.method = class_getInstanceMethod([self class], aspectManager->forwardingMethod.selector);
+        aspectManager->forwardingMethod.implementation = class_getMethodImplementation([self class], @selector(baseClassForwardingTargetForSelector:));
+        aspectManager->forwardingMethod.method = class_getInstanceMethod([self class], @selector(baseClassForwardingTargetForSelector:));
         aspectManager->forwardingMethod.typeEncoding = method_getTypeEncoding(aspectManager->forwardingMethod.method);
         
         // Store the default method invoker block
@@ -247,10 +247,7 @@ static AOPAspect *aspectManager = NULL;
 #pragma mark - Hook
 
 
-- (id)forwardingTargetForSelector:(SEL)aSelector {
-    if (self == [AOPAspect instance]) {
-        return nil;
-    }
+- (id)baseClassForwardingTargetForSelector:(SEL)aSelector {
     
     // Store the current class in the thread dictionary
     [[[NSThread currentThread] threadDictionary] setObject:[self class] forKey:AOPAspectCurrentClassKey];
