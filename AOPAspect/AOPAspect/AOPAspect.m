@@ -37,7 +37,7 @@ typedef enum {
     AOPAspectInspectorTypeAfter = 2
 }AOPAspectInspectorType;
 
-static NSString *const AOPAspectCurrentClassKey = @"AOPAspectCurrentClassKey";
+static NSString *const AOPAspectCurrentObjectKey = @"AOPAspectCurrentObjectKey";
 
 
 #pragma mark - Shared instance
@@ -68,13 +68,14 @@ static AOPAspect *aspectManager = NULL;
         aspectManager = [[AOPAspect alloc] init];
         aspectManager->interceptorStorage = [[NSMutableDictionary alloc] init];
         
-        // Store the default method invoker block
-        aspectManager->methodInvoker = ^(NSInvocation *invocation) {
-            [invocation invoke];
-        };
-        
         // Create queue for synchronization
         aspectManager->synchronizerQueue = dispatch_queue_create("Synchronizer queue - AOPAspect", DISPATCH_QUEUE_SERIAL);
+
+        // Store the default method invoker block
+        aspectManager->methodInvoker = ^(NSInvocation *invocation) {
+            // Invoke the original method
+            [invocation invoke];
+        };
     });
 }
 
@@ -99,12 +100,16 @@ static AOPAspect *aspectManager = NULL;
 }
 
 // Stores the current class in the thread dictionary.
-- (void)setCurrentClass:(Class)aClass {
-    [[[NSThread currentThread] threadDictionary] setObject:aClass forKey:AOPAspectCurrentClassKey];
+- (void)setCurrentObject:(id)anObject {
+    [[[NSThread currentThread] threadDictionary] setObject:anObject forKey:AOPAspectCurrentObjectKey];
+}
+
+- (id)currentObject {
+    return [[[NSThread currentThread] threadDictionary] objectForKey:AOPAspectCurrentObjectKey];
 }
 
 - (Class)currentClass {
-    return [[[NSThread currentThread] threadDictionary] objectForKey:AOPAspectCurrentClassKey];
+    return [[[[NSThread currentThread] threadDictionary] objectForKey:AOPAspectCurrentObjectKey] class];
 }
 
 - (NSString *)identifierWithClass:(Class)aClass selector:(SEL)aSelector dictionary:(NSDictionary *)dictionary {
@@ -113,6 +118,37 @@ static AOPAspect *aspectManager = NULL;
 
 #pragma mark - Interceptor registration
 
+- (void)restoreOriginalMethodWithClass:(Class)aClass selector:(SEL)aSelector {
+
+    Method method = class_getInstanceMethod(aClass, aSelector);
+    IMP implementation;
+    
+    if ([[aClass instanceMethodSignatureForSelector:aSelector] methodReturnLength] > sizeof(double)) {
+        implementation = class_getMethodImplementation_stret([self class], [self extendedSelectorWithClass:aClass selector:aSelector]);
+    }
+    else {
+        implementation = class_getMethodImplementation([self class], [self extendedSelectorWithClass:aClass selector:aSelector]);
+    }
+
+    method_setImplementation(method, implementation);
+}
+
+- (void)interceptMethodWithClass:(Class)aClass selector:(SEL)aSelector {
+    
+    Method method = class_getInstanceMethod(aClass, aSelector);
+    IMP implementation;
+    
+    // Check method return type
+    if ([[aClass instanceMethodSignatureForSelector:aSelector] methodReturnLength] > sizeof(double)) {
+        implementation = (IMP)_objc_msgForward_stret;
+    }
+    else {
+        implementation = (IMP)_objc_msgForward;
+    }
+    
+    // Change the implementation
+    method_setImplementation(method, implementation);
+}
 
 - (NSString *)storeInterceptorBlock:(aspect_block_t)block withClass:(Class)aClass selector:(SEL)aSelector type:(AOPAspectInspectorType)type {
     
@@ -174,19 +210,8 @@ static AOPAspect *aspectManager = NULL;
         else {
             implementation = class_getMethodImplementation(aClass, aSelector);
         }
-                
-        IMP interceptor = NULL;
-        
-        // Check method return type
-        if ([methodSignature methodReturnLength] > sizeof(double)) {
-            interceptor = (IMP)_objc_msgForward_stret;
-        }
-        else {
-            interceptor = (IMP)_objc_msgForward;
-        }
-        
-        // Change the implementation
-        method_setImplementation(method, interceptor);
+
+        [self interceptMethodWithClass:aClass selector:aSelector];
         
         // Get the forwarding method properties
         SEL forwardingMethodSelector = @selector(forwardingTargetForSelector:);
@@ -237,18 +262,7 @@ static AOPAspect *aspectManager = NULL;
 
 - (void)deregisterMethodWithClass:(Class)aClass selector:(SEL)aSelector {
     
-    Method method = class_getInstanceMethod(aClass, aSelector);
-    IMP implementation;
-    
-    if ([[aClass instanceMethodSignatureForSelector:aSelector] methodReturnLength] > sizeof(double)) {
-        implementation = class_getMethodImplementation_stret([self class], [self extendedSelectorWithClass:aClass selector:aSelector]);
-    }
-    else {
-        implementation = class_getMethodImplementation([self class], [self extendedSelectorWithClass:aClass selector:aSelector]);
-    }
-
-    method_setImplementation(method, implementation);
-    
+    [self restoreOriginalMethodWithClass:aClass selector:aSelector];
     [interceptorStorage removeObjectForKey:[self keyWithClass:aClass selector:aSelector]];
 }
 
@@ -307,7 +321,7 @@ static AOPAspect *aspectManager = NULL;
     }
     
     // Store the current class
-    [[AOPAspect instance] setCurrentClass:[self class]];
+    [[AOPAspect instance] setCurrentObject:self];
     
     return [AOPAspect instance];
 }
@@ -325,6 +339,10 @@ static AOPAspect *aspectManager = NULL;
         interceptorTypeDictionary = [interceptorStorage objectForKey:key];
     });
 
+    // Restore original state - this is needed for self and _cmd to be valid
+    // FIXME: this could cause issues between threads
+    [aspectManager restoreOriginalMethodWithClass:aClass selector:aSelector];
+    
     // Executes interceptors before, instead and after
     for (int i = 0; i < 3; i++) {
         __block NSArray *interceptors;
@@ -338,17 +356,15 @@ static AOPAspect *aspectManager = NULL;
             block(anInvocation);
         }
     }
+    
+    // Restore interception
+    [aspectManager interceptMethodWithClass:aClass selector:aSelector];
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
 
-    Class aClass = [self currentClass];
-    SEL selector = anInvocation.selector;
-    
-    SEL extendedSelector = [self extendedSelectorWithClass:aClass selector:selector];
-    [anInvocation setSelector:extendedSelector];
-
-    [self executeInterceptorsWithClass:aClass selector:selector invocation:anInvocation];
+    anInvocation.target = [self currentObject];
+    [self executeInterceptorsWithClass:[self currentClass] selector:anInvocation.selector invocation:anInvocation];
 }
 
 @end
