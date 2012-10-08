@@ -83,9 +83,11 @@ static AOPAspect *aspectManager = NULL;
     return aspectManager;
 }
 
+#if !__has_feature(objc_arc)
 - (void)dealloc {
     dispatch_release(synchronizerQueue);
 }
+#endif
 
 
 #pragma mark - Helper methods

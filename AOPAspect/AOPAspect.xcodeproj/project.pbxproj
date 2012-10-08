@@ -7,95 +7,135 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A04D7B914CABE1D00A2852F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A04D7B814CABE1D00A2852F /* Foundation.framework */; };
-		3A04D7BF14CABE1D00A2852F /* AOPAspect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A04D7BE14CABE1D00A2852F /* AOPAspect.m */; };
-		3AF77A2414D716F200F5D77E /* AOPAspect.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A04D7BD14CABE1D00A2852F /* AOPAspect.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9C8ACEC6162311990091438A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8ACEC5162311990091438A /* UIKit.framework */; };
+		9C8ACEC8162311990091438A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8ACEC7162311990091438A /* Foundation.framework */; };
+		9C8ACECA162311990091438A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8ACEC9162311990091438A /* CoreGraphics.framework */; };
+		9C8ACED2162311990091438A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8ACED1162311990091438A /* main.m */; };
+		9C8ACEE6162312650091438A /* AOPAspect.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8ACEE4162312650091438A /* AOPAspect.m */; };
+		9C8ACEEA1623131A0091438A /* TestsWithNSArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8ACEE91623131A0091438A /* TestsWithNSArray.m */; };
+		9C8ACEEC162315970091438A /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8ACEEB162315970091438A /* GHUnitIOS.framework */; };
+		9C8ACEF116231BCF0091438A /* TestsWithCustomClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8ACEF016231BCF0091438A /* TestsWithCustomClass.m */; };
+		9C8ACEF516231D4E0091438A /* CustomClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8ACEF416231D4E0091438A /* CustomClass.m */; };
+		9C8ACEF816231DED0091438A /* InheritedCustomClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8ACEF716231DED0091438A /* InheritedCustomClass.m */; };
+		9C8ACEFB16231E070091438A /* TestWithInheritedClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8ACEFA16231E070091438A /* TestWithInheritedClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3A04D7B514CABE1D00A2852F /* libAOPAspect.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAOPAspect.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A04D7B814CABE1D00A2852F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		3A04D7BC14CABE1D00A2852F /* AOPAspect-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AOPAspect-Prefix.pch"; sourceTree = "<group>"; };
-		3A04D7BD14CABE1D00A2852F /* AOPAspect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOPAspect.h; sourceTree = "<group>"; };
-		3A04D7BE14CABE1D00A2852F /* AOPAspect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AOPAspect.m; sourceTree = "<group>"; };
+		9C8ACEC1162311990091438A /* AOPAspect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AOPAspect.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C8ACEC5162311990091438A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9C8ACEC7162311990091438A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9C8ACEC9162311990091438A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9C8ACECD162311990091438A /* AOPAspect-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AOPAspect-Info.plist"; sourceTree = "<group>"; };
+		9C8ACED1162311990091438A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9C8ACED3162311990091438A /* AOPAspect-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AOPAspect-Prefix.pch"; sourceTree = "<group>"; };
+		9C8ACEE4162312650091438A /* AOPAspect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOPAspect.m; sourceTree = "<group>"; };
+		9C8ACEE5162312650091438A /* AOPAspect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOPAspect.h; sourceTree = "<group>"; };
+		9C8ACEE91623131A0091438A /* TestsWithNSArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestsWithNSArray.m; path = Tests/TestsWithNSArray.m; sourceTree = "<group>"; };
+		9C8ACEEB162315970091438A /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GHUnitIOS.framework; sourceTree = "<group>"; };
+		9C8ACEF016231BCF0091438A /* TestsWithCustomClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestsWithCustomClass.m; path = Tests/TestsWithCustomClass.m; sourceTree = "<group>"; };
+		9C8ACEF316231D4E0091438A /* CustomClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomClass.h; path = Classes/CustomClass.h; sourceTree = "<group>"; };
+		9C8ACEF416231D4E0091438A /* CustomClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomClass.m; path = Classes/CustomClass.m; sourceTree = "<group>"; };
+		9C8ACEF616231DED0091438A /* InheritedCustomClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InheritedCustomClass.h; path = Classes/InheritedCustomClass.h; sourceTree = "<group>"; };
+		9C8ACEF716231DED0091438A /* InheritedCustomClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InheritedCustomClass.m; path = Classes/InheritedCustomClass.m; sourceTree = "<group>"; };
+		9C8ACEFA16231E070091438A /* TestWithInheritedClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestWithInheritedClass.m; path = Tests/TestWithInheritedClass.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3A04D7B214CABE1D00A2852F /* Frameworks */ = {
+		9C8ACEBE162311990091438A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A04D7B914CABE1D00A2852F /* Foundation.framework in Frameworks */,
+				9C8ACEC6162311990091438A /* UIKit.framework in Frameworks */,
+				9C8ACEC8162311990091438A /* Foundation.framework in Frameworks */,
+				9C8ACECA162311990091438A /* CoreGraphics.framework in Frameworks */,
+				9C8ACEEC162315970091438A /* GHUnitIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3A04D7AA14CABE1D00A2852F = {
+		9C8ACEB6162311990091438A = {
 			isa = PBXGroup;
 			children = (
-				3A04D7BA14CABE1D00A2852F /* AOPAspect */,
-				3A04D7B714CABE1D00A2852F /* Frameworks */,
-				3A04D7B614CABE1D00A2852F /* Products */,
+				9C8ACECB162311990091438A /* AOPAspect */,
+				9C8ACEC4162311990091438A /* Frameworks */,
+				9C8ACEC2162311990091438A /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		3A04D7B614CABE1D00A2852F /* Products */ = {
+		9C8ACEC2162311990091438A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3A04D7B514CABE1D00A2852F /* libAOPAspect.a */,
+				9C8ACEC1162311990091438A /* AOPAspect.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3A04D7B714CABE1D00A2852F /* Frameworks */ = {
+		9C8ACEC4162311990091438A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3A04D7B814CABE1D00A2852F /* Foundation.framework */,
+				9C8ACEEB162315970091438A /* GHUnitIOS.framework */,
+				9C8ACEC5162311990091438A /* UIKit.framework */,
+				9C8ACEC7162311990091438A /* Foundation.framework */,
+				9C8ACEC9162311990091438A /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3A04D7BA14CABE1D00A2852F /* AOPAspect */ = {
+		9C8ACECB162311990091438A /* AOPAspect */ = {
 			isa = PBXGroup;
 			children = (
-				3A04D7BD14CABE1D00A2852F /* AOPAspect.h */,
-				3A04D7BE14CABE1D00A2852F /* AOPAspect.m */,
-				3A04D7BB14CABE1D00A2852F /* Supporting Files */,
+				9C8ACEF216231D3A0091438A /* Classes */,
+				9C8ACEE7162312F30091438A /* Tests */,
+				9C8ACEE4162312650091438A /* AOPAspect.m */,
+				9C8ACEE5162312650091438A /* AOPAspect.h */,
+				9C8ACECC162311990091438A /* Supporting Files */,
 			);
 			path = AOPAspect;
 			sourceTree = "<group>";
 		};
-		3A04D7BB14CABE1D00A2852F /* Supporting Files */ = {
+		9C8ACECC162311990091438A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				3A04D7BC14CABE1D00A2852F /* AOPAspect-Prefix.pch */,
+				9C8ACECD162311990091438A /* AOPAspect-Info.plist */,
+				9C8ACED1162311990091438A /* main.m */,
+				9C8ACED3162311990091438A /* AOPAspect-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		9C8ACEE7162312F30091438A /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				9C8ACEF016231BCF0091438A /* TestsWithCustomClass.m */,
+				9C8ACEE91623131A0091438A /* TestsWithNSArray.m */,
+				9C8ACEFA16231E070091438A /* TestWithInheritedClass.m */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
+		9C8ACEF216231D3A0091438A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				9C8ACEF316231D4E0091438A /* CustomClass.h */,
+				9C8ACEF416231D4E0091438A /* CustomClass.m */,
+				9C8ACEF616231DED0091438A /* InheritedCustomClass.h */,
+				9C8ACEF716231DED0091438A /* InheritedCustomClass.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		3A04D7B314CABE1D00A2852F /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3AF77A2414D716F200F5D77E /* AOPAspect.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
-		3A04D7B414CABE1D00A2852F /* AOPAspect */ = {
+		9C8ACEC0162311990091438A /* AOPAspect */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3A04D7C214CABE1D00A2852F /* Build configuration list for PBXNativeTarget "AOPAspect" */;
+			buildConfigurationList = 9C8ACEDF162311990091438A /* Build configuration list for PBXNativeTarget "AOPAspect" */;
 			buildPhases = (
-				3A04D7B114CABE1D00A2852F /* Sources */,
-				3A04D7B214CABE1D00A2852F /* Frameworks */,
-				3A04D7B314CABE1D00A2852F /* Headers */,
+				9C8ACEBD162311990091438A /* Sources */,
+				9C8ACEBE162311990091438A /* Frameworks */,
+				9C8ACEBF162311990091438A /* Resources */,
 			);
 			buildRules = (
 			);
@@ -103,52 +143,72 @@
 			);
 			name = AOPAspect;
 			productName = AOPAspect;
-			productReference = 3A04D7B514CABE1D00A2852F /* libAOPAspect.a */;
-			productType = "com.apple.product-type.library.static";
+			productReference = 9C8ACEC1162311990091438A /* AOPAspect.app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		3A04D7AC14CABE1D00A2852F /* Project object */ = {
+		9C8ACEB8162311990091438A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0450;
 			};
-			buildConfigurationList = 3A04D7AF14CABE1D00A2852F /* Build configuration list for PBXProject "AOPAspect" */;
+			buildConfigurationList = 9C8ACEBB162311990091438A /* Build configuration list for PBXProject "AOPAspect" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 3A04D7AA14CABE1D00A2852F;
-			productRefGroup = 3A04D7B614CABE1D00A2852F /* Products */;
+			mainGroup = 9C8ACEB6162311990091438A;
+			productRefGroup = 9C8ACEC2162311990091438A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3A04D7B414CABE1D00A2852F /* AOPAspect */,
+				9C8ACEC0162311990091438A /* AOPAspect */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		9C8ACEBF162311990091438A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		3A04D7B114CABE1D00A2852F /* Sources */ = {
+		9C8ACEBD162311990091438A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A04D7BF14CABE1D00A2852F /* AOPAspect.m in Sources */,
+				9C8ACED2162311990091438A /* main.m in Sources */,
+				9C8ACEE6162312650091438A /* AOPAspect.m in Sources */,
+				9C8ACEEA1623131A0091438A /* TestsWithNSArray.m in Sources */,
+				9C8ACEF116231BCF0091438A /* TestsWithCustomClass.m in Sources */,
+				9C8ACEF516231D4E0091438A /* CustomClass.m in Sources */,
+				9C8ACEF816231DED0091438A /* InheritedCustomClass.m in Sources */,
+				9C8ACEFB16231E070091438A /* TestWithInheritedClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		3A04D7C014CABE1D00A2852F /* Debug */ = {
+		9C8ACEDD162311990091438A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -158,79 +218,96 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
-		3A04D7C114CABE1D00A2852F /* Release */ = {
+		9C8ACEDE162311990091438A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		3A04D7C314CABE1D00A2852F /* Debug */ = {
+		9C8ACEE0162311990091438A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DSTROOT = /tmp/AOPAspect.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AOPAspect/AOPAspect-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
+				INFOPLIST_FILE = "AOPAspect/AOPAspect-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
-		3A04D7C414CABE1D00A2852F /* Release */ = {
+		9C8ACEE1162311990091438A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DSTROOT = /tmp/AOPAspect.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AOPAspect/AOPAspect-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
+				INFOPLIST_FILE = "AOPAspect/AOPAspect-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3A04D7AF14CABE1D00A2852F /* Build configuration list for PBXProject "AOPAspect" */ = {
+		9C8ACEBB162311990091438A /* Build configuration list for PBXProject "AOPAspect" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3A04D7C014CABE1D00A2852F /* Debug */,
-				3A04D7C114CABE1D00A2852F /* Release */,
+				9C8ACEDD162311990091438A /* Debug */,
+				9C8ACEDE162311990091438A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3A04D7C214CABE1D00A2852F /* Build configuration list for PBXNativeTarget "AOPAspect" */ = {
+		9C8ACEDF162311990091438A /* Build configuration list for PBXNativeTarget "AOPAspect" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3A04D7C314CABE1D00A2852F /* Debug */,
-				3A04D7C414CABE1D00A2852F /* Release */,
+				9C8ACEE0162311990091438A /* Debug */,
+				9C8ACEE1162311990091438A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 3A04D7AC14CABE1D00A2852F /* Project object */;
+	rootObject = 9C8ACEB8162311990091438A /* Project object */;
 }

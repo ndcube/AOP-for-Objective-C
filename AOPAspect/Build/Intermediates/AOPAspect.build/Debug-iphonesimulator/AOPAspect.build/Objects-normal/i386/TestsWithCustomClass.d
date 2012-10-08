@@ -1,0 +1,20 @@
+dependencies: \
+  /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/AOPAspect/Tests/TestsWithCustomClass.m \
+  /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/GHUnitIOS.framework/Headers/GHUnit.h \
+  /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/GHUnitIOS.framework/Headers/GHTestCase.h \
+  /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/GHUnitIOS.framework/Headers/GHTestMacros.h \
+  /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/GHUnitIOS.framework/Headers/NSException+GHTestFailureExceptions.h \
+  /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/GHUnitIOS.framework/Headers/NSValue+GHValueFormatter.h \
+  /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/GHUnitIOS.framework/Headers/GHTest.h \
+  /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/GHUnitIOS.framework/Headers/GHAsyncTestCase.h \
+  /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/GHUnitIOS.framework/Headers/GHTestSuite.h \
+  /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/GHUnitIOS.framework/Headers/GHTestGroup.h \
+  /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/GHUnitIOS.framework/Headers/GHTestRunner.h \
+  /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/GHUnitIOS.framework/Headers/GHTesting.h \
+  /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/GHUnitIOS.framework/Headers/GHTestOperation.h \
+  /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/GHUnitIOS.framework/Headers/GHTest+JUnitXML.h \
+  /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/GHUnitIOS.framework/Headers/GHTestGroup+JUnitXML.h \
+  /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/GHUnitIOS.framework/Headers/GHUnitIOSAppDelegate.h \
+  /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/GHUnitIOS.framework/Headers/GHViewTestCase.h \
+  /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/AOPAspect/AOPAspect.h \
+  /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/AOPAspect/Classes/CustomClass.h
