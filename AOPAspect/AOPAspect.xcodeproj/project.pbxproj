@@ -13,6 +13,7 @@
 		9C8ACED2162311990091438A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8ACED1162311990091438A /* main.m */; };
 		9C8ACEE3162311BB0091438A /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8ACEE2162311BB0091438A /* GHUnitIOS.framework */; };
 		9C8ACEE6162312650091438A /* AOPAspect.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8ACEE4162312650091438A /* AOPAspect.m */; };
+		9C8ACEEA1623131A0091438A /* BasicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8ACEE91623131A0091438A /* BasicTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		9C8ACEE2162311BB0091438A /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GHUnitIOS.framework; sourceTree = "<group>"; };
 		9C8ACEE4162312650091438A /* AOPAspect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOPAspect.m; sourceTree = "<group>"; };
 		9C8ACEE5162312650091438A /* AOPAspect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOPAspect.h; sourceTree = "<group>"; };
+		9C8ACEE91623131A0091438A /* BasicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasicTests.m; path = Tests/BasicTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		9C8ACECB162311990091438A /* AOPAspect */ = {
 			isa = PBXGroup;
 			children = (
+				9C8ACEE7162312F30091438A /* Tests */,
 				9C8ACEE4162312650091438A /* AOPAspect.m */,
 				9C8ACEE5162312650091438A /* AOPAspect.h */,
 				9C8ACECC162311990091438A /* Supporting Files */,
@@ -89,6 +92,14 @@
 				9C8ACED3162311990091438A /* AOPAspect-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9C8ACEE7162312F30091438A /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				9C8ACEE91623131A0091438A /* BasicTests.m */,
+			);
+			name = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +164,7 @@
 			files = (
 				9C8ACED2162311990091438A /* main.m in Sources */,
 				9C8ACEE6162312650091438A /* AOPAspect.m in Sources */,
+				9C8ACEEA1623131A0091438A /* BasicTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
