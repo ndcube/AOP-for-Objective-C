@@ -16,7 +16,12 @@
 
 @implementation TestWithInheritedClass
 
-- (void) testWithCustomClass
+- (void)setUp
+{
+    [self prepare];
+}
+
+- (void) testWithInheritedClass
 {
     int valueBeforeAfterAdvice;
     
@@ -27,12 +32,14 @@
                               usingBlock:^(NSInvocation *invocation)
      {
          if( valueBeforeAfterAdvice == 42 )
-             [self notify:kGHUnitWaitStatusSuccess forSelector:@selector(testAspectOnNSArrayAfter)];
+             [self notify:kGHUnitWaitStatusSuccess];
          else
-             [self notify:kGHUnitWaitStatusFailure forSelector:@selector(testAspectOnNSArrayAfter)];
+             [self notify:kGHUnitWaitStatusFailure];
      }];
     
     valueBeforeAfterAdvice = [inherited computeSomething];
+    
+    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:1];
 }
 
 

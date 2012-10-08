@@ -16,6 +16,11 @@
 
 @implementation BasicTestsWithNSArray
 
+- (void)setUp
+{
+    [self prepare];
+}
+
 - (void) testAspectOnNSArrayAfter
 {
     int actualCount = 0;
@@ -28,12 +33,14 @@
                               usingBlock:^(NSInvocation *invocation)
     {
         if( actualCount == expectedCount )
-            [self notify:kGHUnitWaitStatusSuccess forSelector:@selector(testAspectOnNSArrayAfter)];
+            [self notify:kGHUnitWaitStatusSuccess];
         else
-            [self notify:kGHUnitWaitStatusFailure forSelector:@selector(testAspectOnNSArrayAfter)];
+            [self notify:kGHUnitWaitStatusFailure];
     }];
     
     actualCount = [array count];
+    
+    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:1];
 }
 
 - (void) testAspectOnNSArrayBefore
@@ -54,6 +61,8 @@
      }];
     
     actualCount = [array count];
+    
+    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:1];
 }
 
 

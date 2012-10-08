@@ -15,6 +15,11 @@
 
 @implementation BasicTestsWithCustomClass
 
+- (void)setUp
+{
+    [self prepare];
+}
+
 - (void) testWithCustomClass
 {
     CustomClass * custom = [[CustomClass alloc] init];
@@ -23,10 +28,12 @@
                   afterExecutingSelector:@selector(computeSomething)
                               usingBlock:^(NSInvocation *invocation)
      {
-         [self notify:kGHUnitWaitStatusSuccess forSelector:@selector(testAspectOnNSArrayAfter)];
+         [self notify:kGHUnitWaitStatusSuccess];
      }];
     
     [custom computeSomething];
+    
+    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:1];
 }
 
 @end
