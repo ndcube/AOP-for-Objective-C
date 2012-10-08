@@ -11,9 +11,9 @@
 		9C8ACEC8162311990091438A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8ACEC7162311990091438A /* Foundation.framework */; };
 		9C8ACECA162311990091438A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8ACEC9162311990091438A /* CoreGraphics.framework */; };
 		9C8ACED2162311990091438A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8ACED1162311990091438A /* main.m */; };
-		9C8ACEE3162311BB0091438A /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8ACEE2162311BB0091438A /* GHUnitIOS.framework */; };
 		9C8ACEE6162312650091438A /* AOPAspect.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8ACEE4162312650091438A /* AOPAspect.m */; };
 		9C8ACEEA1623131A0091438A /* BasicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8ACEE91623131A0091438A /* BasicTests.m */; };
+		9C8ACEEC162315970091438A /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8ACEEB162315970091438A /* GHUnitIOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,10 +24,10 @@
 		9C8ACECD162311990091438A /* AOPAspect-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AOPAspect-Info.plist"; sourceTree = "<group>"; };
 		9C8ACED1162311990091438A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9C8ACED3162311990091438A /* AOPAspect-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AOPAspect-Prefix.pch"; sourceTree = "<group>"; };
-		9C8ACEE2162311BB0091438A /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GHUnitIOS.framework; sourceTree = "<group>"; };
 		9C8ACEE4162312650091438A /* AOPAspect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOPAspect.m; sourceTree = "<group>"; };
 		9C8ACEE5162312650091438A /* AOPAspect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOPAspect.h; sourceTree = "<group>"; };
 		9C8ACEE91623131A0091438A /* BasicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasicTests.m; path = Tests/BasicTests.m; sourceTree = "<group>"; };
+		9C8ACEEB162315970091438A /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GHUnitIOS.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,7 +38,7 @@
 				9C8ACEC6162311990091438A /* UIKit.framework in Frameworks */,
 				9C8ACEC8162311990091438A /* Foundation.framework in Frameworks */,
 				9C8ACECA162311990091438A /* CoreGraphics.framework in Frameworks */,
-				9C8ACEE3162311BB0091438A /* GHUnitIOS.framework in Frameworks */,
+				9C8ACEEC162315970091438A /* GHUnitIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,7 +65,7 @@
 		9C8ACEC4162311990091438A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9C8ACEE2162311BB0091438A /* GHUnitIOS.framework */,
+				9C8ACEEB162315970091438A /* GHUnitIOS.framework */,
 				9C8ACEC5162311990091438A /* UIKit.framework */,
 				9C8ACEC7162311990091438A /* Foundation.framework */,
 				9C8ACEC9162311990091438A /* CoreGraphics.framework */,
