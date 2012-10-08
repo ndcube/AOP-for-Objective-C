@@ -27,7 +27,7 @@
     
     InheritedCustomClass * inherited = [[InheritedCustomClass alloc] init];
     
-    [[AOPAspect instance] interceptClass:[CustomClass class]
+    [[AOPAspect instance] interceptClass:[InheritedCustomClass class]
                   afterExecutingSelector:@selector(computeSomething)
                               usingBlock:^(NSInvocation *invocation)
      {
