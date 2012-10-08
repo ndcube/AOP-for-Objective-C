@@ -28,9 +28,9 @@
                               usingBlock:^(NSInvocation *invocation)
     {
         if( actualCount == expectedCount )
-            [self notify:kGHUnitWaitStatusSuccess forSelector:@selector(testAspectOnNSArray)];
+            [self notify:kGHUnitWaitStatusSuccess forSelector:@selector(testAspectOnNSArrayAfter)];
         else
-            [self notify:kGHUnitWaitStatusFailure forSelector:@selector(testAspectOnNSArray)];
+            [self notify:kGHUnitWaitStatusFailure forSelector:@selector(testAspectOnNSArrayAfter)];
     }];
     
     actualCount = [array count];
@@ -48,9 +48,9 @@
                               usingBlock:^(NSInvocation *invocation)
      {
          if( actualCount == expectedCount )
-             [self notify:kGHUnitWaitStatusSuccess forSelector:@selector(testAspectOnNSArray)];
+             [self notify:kGHUnitWaitStatusSuccess forSelector:@selector(testAspectOnNSArrayBefore)];
          else
-             [self notify:kGHUnitWaitStatusFailure forSelector:@selector(testAspectOnNSArray)];
+             [self notify:kGHUnitWaitStatusFailure forSelector:@selector(testAspectOnNSArrayBefore)];
      }];
     
     actualCount = [array count];
