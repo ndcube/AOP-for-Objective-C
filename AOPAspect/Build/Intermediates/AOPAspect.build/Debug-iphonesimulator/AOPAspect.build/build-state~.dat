@@ -1,0 +1,230 @@
+TAOPAspect
+v5
+r1
+cCheck dependencies
+cProcessInfoPlistFile /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Products/Debug-iphonesimulator/AOPAspect.app/Info.plist AOPAspect/AOPAspect-Info.plist
+cProcessPCH /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Intermediates/PrecompiledHeaders/AOPAspect-Prefix-erwniysjtpbrrabckmoxjqxsseee/AOPAspect-Prefix.pch.pth AOPAspect/AOPAspect-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/AOPAspect.build/Debug-iphonesimulator/AOPAspect.build/Objects-normal/i386/main.o /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/AOPAspect/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk
+c00000000506F4C2F0000000000000110
+t1349471279
+s272
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c00000000505CC71F0000000000228FD0
+t1348257567
+s2265040
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c00000000505CC72200000000003DCEF0
+t1348257570
+s4050672
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c00000000505CC72100000000000015F7
+t1348257569
+s5623
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c00000000505CC72B0000000000000E8D
+t1348257579
+s3725
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c00000000505CC72F0000000000AB3D60
+t1348257583
+s11222368
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/usr/include/Availability.h
+c00000000505CC7470000000000001B54
+t1348257607
+s6996
+
+N/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/AOPAspect/AOPAspect-Prefix.pch
+c000000005072DA190000000000000141
+t1349704217
+s321
+i<Availability.h>
+i<UIKit/UIKit.h>
+i<Foundation/Foundation.h>
+
+N/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/AOPAspect/AppDelegate.m
+c000000005072DA190000000000000852
+t1349704217
+s2130
+
+N/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/AOPAspect/Default-568h@2x.png
+c0000000050262AB100000000000048A2
+t1344678577
+s18594
+
+N/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/AOPAspect/Default.png
+c0000000050262AB1000000000000198C
+t1344678577
+s6540
+
+N/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/AOPAspect/Default@2x.png
+c0000000050262AB10000000000003EEB
+t1344678577
+s16107
+
+N/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/AOPAspect/en.lproj/InfoPlist.strings
+c000000005072DA19000000000000002D
+t1349704217
+s45
+
+N/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/AOPAspect/main.m
+c000000005072DA330000000000000113
+t1349704243
+s275
+
+N/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Intermediates/AOPAspect.build/Debug-iphonesimulator/AOPAspect.build/Objects-normal/i386/AOPAspect.LinkFileList
+c000000005072DA3D00000000000000A3
+t1349704253
+s163
+
+N/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Intermediates/AOPAspect.build/Debug-iphonesimulator/AOPAspect.build/Objects-normal/i386/AppDelegate.o
+t2
+s0
+
+N/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Intermediates/AOPAspect.build/Debug-iphonesimulator/AOPAspect.build/Objects-normal/i386/main.o
+t2
+s0
+
+N/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Intermediates/PrecompiledHeaders/AOPAspect-Prefix-awytqdgqqpwqcbcdzxiafuwqjbzd/AOPAspect-Prefix.pch.pth
+t2
+s0
+
+N/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Intermediates/PrecompiledHeaders/AOPAspect-Prefix-erwniysjtpbrrabckmoxjqxsseee/AOPAspect-Prefix.pch.pth
+t2
+s0
+
+N/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Products/Debug-iphonesimulator/AOPAspect.app
+t2
+s0
+
+N/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Products/Debug-iphonesimulator/AOPAspect.app.dSYM
+t2
+s0
+
+N/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Products/Debug-iphonesimulator/AOPAspect.app/AOPAspect
+t2
+s0
+
+N/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Products/Debug-iphonesimulator/AOPAspect.app/Default-568h@2x.png
+t2
+s0
+
+N/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Products/Debug-iphonesimulator/AOPAspect.app/Default.png
+t2
+s0
+
+N/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Products/Debug-iphonesimulator/AOPAspect.app/Default@2x.png
+t2
+s0
+
+N/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Products/Debug-iphonesimulator/AOPAspect.app/Info.plist
+t2
+s0
+
+N/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Products/Debug-iphonesimulator/AOPAspect.app/PkgInfo
+t2
+s0
+
+N/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Products/Debug-iphonesimulator/AOPAspect.app/en.lproj/InfoPlist.strings
+t2
+s0
+
+N/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/GHUnitIOS.framework/GHUnitIOS
+c0000000050631D5E000000000031295C
+t1348672862
+s3221852
+
+NAOPAspect/AOPAspect-Info.plist
+c000000005072DA190000000000000492
+t1349704217
+s1170
+
+CBuild AST from /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/AOPAspect/AppDelegate.m
+r0
+
+CBuild AST from /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/AOPAspect/main.m
+r0
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependenciesc5e213bd1123b641^b8af17bd1123b641^---0#1#0#--18"Check dependencies36"D87871AC-3361-4BC3-B11E-610DB3E9278E-
+
+CCompileC Build/Intermediates/AOPAspect.build/Debug-iphonesimulator/AOPAspect.build/Objects-normal/i386/AppDelegate.o /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/AOPAspect/AppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/AOPAspect.build/Debug-iphonesimulator/AOPAspect.build/Objects-normal/i386/main.o /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/AOPAspect/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s371397053.582330
+e371397053.612663
+r0
+xCompileC
+xBuild/Intermediates/AOPAspect.build/Debug-iphonesimulator/AOPAspect.build/Objects-normal/i386/main.o
+x/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/AOPAspect/main.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+o/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/AOPAspect/main.m:11:9: fatal error: 'AppDelegate.h' file not found
+o#import "AppDelegate.h"
+o        ^
+o1 error generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection86"Compile /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/AOPAspect/main.mef3895bd1123b641^8bdf9cbd1123b641^-182"/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/AOPAspect/main.m:11:9: fatal error: 'AppDelegate.h' file not found#import "AppDelegate.h"        ^1 error generated.1(36%IDEClangDiagnosticActivityLogMessage2@30"'AppDelegate.h' file not found-371397053#18446744073709551615#0#-2#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@94"file://localhost/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/AOPAspect/main.m0000000000000000^10#8#10#8#116#0#29"Lexical or Preprocessor Issue--0#0#0#-19%DVTDocumentLocation4@94"file://localhost/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/AOPAspect/main.m0000000000000000^4063"CompileC Build/Intermediates/AOPAspect.build/Debug-iphonesimulator/AOPAspect.build/Objects-normal/i386/main.o AOPAspect/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -mios-simulator-version-min=6.0 -iquote /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Intermediates/AOPAspect.build/Debug-iphonesimulator/AOPAspect.build/AOPAspect-generated-files.hmap -I/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Intermediates/AOPAspect.build/Debug-iphonesimulator/AOPAspect.build/AOPAspect-own-target-headers.hmap -I/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Intermediates/AOPAspect.build/Debug-iphonesimulator/AOPAspect.build/AOPAspect-all-target-headers.hmap -iquote /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Intermediates/AOPAspect.build/Debug-iphonesimulator/AOPAspect.build/AOPAspect-project-headers.hmap -I/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Products/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Intermediates/AOPAspect.build/Debug-iphonesimulator/AOPAspect.build/DerivedSources/i386 -I/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Intermediates/AOPAspect.build/Debug-iphonesimulator/AOPAspect.build/DerivedSources -F/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Products/Debug-iphonesimulator -F/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect -include /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Intermediates/PrecompiledHeaders/AOPAspect-Prefix-erwniysjtpbrrabckmoxjqxsseee/AOPAspect-Prefix.pch -MMD -MT dependencies -MF /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Intermediates/AOPAspect.build/Debug-iphonesimulator/AOPAspect.build/Objects-normal/i386/main.d --serialize-diagnostics /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Intermediates/AOPAspect.build/Debug-iphonesimulator/AOPAspect.build/Objects-normal/i386/main.dia -c /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/AOPAspect/main.m -o /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Intermediates/AOPAspect.build/Debug-iphonesimulator/AOPAspect.build/Objects-normal/i386/main.o36"9D0E6AF4-E9C9-472B-91B8-B56D3220C7AD-
+
+CCopyStringsFile /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Products/Debug-iphonesimulator/AOPAspect.app/en.lproj/InfoPlist.strings AOPAspect/en.lproj/InfoPlist.strings
+r0
+
+CCpResource AOPAspect/Default-568h@2x.png Build/Products/Debug-iphonesimulator/AOPAspect.app/Default-568h@2x.png
+r0
+
+CCpResource AOPAspect/Default.png Build/Products/Debug-iphonesimulator/AOPAspect.app/Default.png
+r0
+
+CCpResource AOPAspect/Default@2x.png Build/Products/Debug-iphonesimulator/AOPAspect.app/Default@2x.png
+r0
+
+CGenerateDSYMFile /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Products/Debug-iphonesimulator/AOPAspect.app.dSYM /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Products/Debug-iphonesimulator/AOPAspect.app/AOPAspect
+r0
+
+CLd /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Products/Debug-iphonesimulator/AOPAspect.app/AOPAspect normal i386
+r0
+
+CProcessInfoPlistFile /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Products/Debug-iphonesimulator/AOPAspect.app/Info.plist AOPAspect/AOPAspect-Info.plist
+s371397053.100110
+e371397053.103884
+r1
+xProcessInfoPlistFile
+x/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Products/Debug-iphonesimulator/AOPAspect.app/Info.plist
+xAOPAspect/AOPAspect-Info.plist
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection38"Process AOPAspect/AOPAspect-Info.plist8cbf19bd1123b641^05a71abd1123b641^---0#0#0#-19%DVTDocumentLocation2@108"file://localhost/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/AOPAspect/AOPAspect-Info.plist0000000000000000^760"ProcessInfoPlistFile Build/Products/Debug-iphonesimulator/AOPAspect.app/Info.plist AOPAspect/AOPAspect-Info.plist    cd /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility AOPAspect/AOPAspect-Info.plist -genpkginfo /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Products/Debug-iphonesimulator/AOPAspect.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -o /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Products/Debug-iphonesimulator/AOPAspect.app/Info.plist36"07949F9E-6C1E-4AFF-AE47-F6C9AA99CE6D-
+
+CProcessPCH /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Intermediates/PrecompiledHeaders/AOPAspect-Prefix-awytqdgqqpwqcbcdzxiafuwqjbzd/AOPAspect-Prefix.pch.pth AOPAspect/AOPAspect-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CProcessPCH /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Intermediates/PrecompiledHeaders/AOPAspect-Prefix-erwniysjtpbrrabckmoxjqxsseee/AOPAspect-Prefix.pch.pth AOPAspect/AOPAspect-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s371397053.111730
+e371397053.575925
+r1
+xProcessPCH
+x/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Intermediates/PrecompiledHeaders/AOPAspect-Prefix-erwniysjtpbrrabckmoxjqxsseee/AOPAspect-Prefix.pch.pth
+xAOPAspect/AOPAspect-Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection41"Precompile AOPAspect/AOPAspect-Prefix.pch0ad61cbd1123b641^f86e93bd1123b641^---0#0#0#-19%DVTDocumentLocation2@108"file://localhost/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/AOPAspect/AOPAspect-Prefix.pch0000000000000000^3955"ProcessPCH Build/Intermediates/PrecompiledHeaders/AOPAspect-Prefix-erwniysjtpbrrabckmoxjqxsseee/AOPAspect-Prefix.pch.pth AOPAspect/AOPAspect-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch i386 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -mios-simulator-version-min=6.0 -iquote /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Intermediates/AOPAspect.build/Debug-iphonesimulator/AOPAspect.build/AOPAspect-generated-files.hmap -I/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Intermediates/AOPAspect.build/Debug-iphonesimulator/AOPAspect.build/AOPAspect-own-target-headers.hmap -I/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Intermediates/AOPAspect.build/Debug-iphonesimulator/AOPAspect.build/AOPAspect-all-target-headers.hmap -iquote /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Intermediates/AOPAspect.build/Debug-iphonesimulator/AOPAspect.build/AOPAspect-project-headers.hmap -I/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Products/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Intermediates/AOPAspect.build/Debug-iphonesimulator/AOPAspect.build/DerivedSources/i386 -I/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Intermediates/AOPAspect.build/Debug-iphonesimulator/AOPAspect.build/DerivedSources -F/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Products/Debug-iphonesimulator -F/Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect --serialize-diagnostics /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Intermediates/PrecompiledHeaders/AOPAspect-Prefix-erwniysjtpbrrabckmoxjqxsseee/AOPAspect-Prefix.pch.dia -c /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/AOPAspect/AOPAspect-Prefix.pch -o /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Intermediates/PrecompiledHeaders/AOPAspect-Prefix-erwniysjtpbrrabckmoxjqxsseee/AOPAspect-Prefix.pch.pth -MMD -MT dependencies -MF /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Intermediates/PrecompiledHeaders/AOPAspect-Prefix-erwniysjtpbrrabckmoxjqxsseee/AOPAspect-Prefix.pch.d36"0C05C786-5C87-492E-A80F-0A1D0FE0E365-
+
+CProcessPCH /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/DerivedData/AOPAspect/Index/PrecompiledHeaders/AOPAspect-Prefix-allnyxeumjkduwgmccwzpwbdfvrl_ast/AOPAspect-Prefix.pch.pth AOPAspect/AOPAspect-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CProcessPCH /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/DerivedData/AOPAspect/Index/PrecompiledHeaders/AOPAspect-Prefix-bqhtkewrzokcrmgonjylbawyrjep_ast/AOPAspect-Prefix.pch.pth AOPAspect/AOPAspect-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CTouch /Users/Marcelo/Projects/current/AOP-for-Objective-C/AOPAspect/Build/Products/Debug-iphonesimulator/AOPAspect.app
+r0
+

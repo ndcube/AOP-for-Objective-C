@@ -16,7 +16,7 @@
 
 @implementation BasicTests
 
-- (void) testAspectOnNSArray
+- (void) testAspectOnNSArrayAfter
 {
     int actualCount = 0;
     int expectedCount = 3;
@@ -32,6 +32,26 @@
         else
             [self notify:kGHUnitWaitStatusFailure forSelector:@selector(testAspectOnNSArray)];
     }];
+    
+    actualCount = [array count];
+}
+
+- (void) testAspectOnNSArrayBefore
+{
+    int actualCount = 0;
+    int expectedCount = 0;
+    
+    NSArray *array = [NSArray arrayWithObjects:@"1", @"2", @"3", nil];
+    
+    [[AOPAspect instance] interceptClass:[NSArray class]
+                  beforeExecutingSelector:@selector(count)
+                              usingBlock:^(NSInvocation *invocation)
+     {
+         if( actualCount == expectedCount )
+             [self notify:kGHUnitWaitStatusSuccess forSelector:@selector(testAspectOnNSArray)];
+         else
+             [self notify:kGHUnitWaitStatusFailure forSelector:@selector(testAspectOnNSArray)];
+     }];
     
     actualCount = [array count];
 }
