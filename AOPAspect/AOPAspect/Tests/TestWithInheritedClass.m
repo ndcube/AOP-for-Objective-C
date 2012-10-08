@@ -23,7 +23,7 @@
 
 - (void) testWithInheritedClass
 {
-    int valueBeforeAfterAdvice;
+    int valueBeforeAfterAdvice=0;
     
     InheritedCustomClass * inherited = [[InheritedCustomClass alloc] init];
     
@@ -32,9 +32,9 @@
                               usingBlock:^(NSInvocation *invocation)
      {
          if( valueBeforeAfterAdvice == 42 )
-             [self notify:kGHUnitWaitStatusSuccess];
+             [self notify:kGHUnitWaitStatusSuccess forSelector:@selector(testWithInheritedClass)];
          else
-             [self notify:kGHUnitWaitStatusFailure];
+             [self notify:kGHUnitWaitStatusFailure forSelector:@selector(testWithInheritedClass)];
      }];
     
     valueBeforeAfterAdvice = [inherited computeSomething];

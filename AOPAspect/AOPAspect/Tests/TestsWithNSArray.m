@@ -33,9 +33,9 @@
                               usingBlock:^(NSInvocation *invocation)
     {
         if( actualCount == expectedCount )
-            [self notify:kGHUnitWaitStatusSuccess];
+            [self notify:kGHUnitWaitStatusSuccess forSelector:@selector(testAspectOnNSArrayAfter)];
         else
-            [self notify:kGHUnitWaitStatusFailure];
+            [self notify:kGHUnitWaitStatusFailure forSelector:@selector(testAspectOnNSArrayAfter)];
     }];
     
     actualCount = [array count];
