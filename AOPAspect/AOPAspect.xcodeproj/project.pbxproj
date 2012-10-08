@@ -12,8 +12,12 @@
 		9C8ACECA162311990091438A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8ACEC9162311990091438A /* CoreGraphics.framework */; };
 		9C8ACED2162311990091438A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8ACED1162311990091438A /* main.m */; };
 		9C8ACEE6162312650091438A /* AOPAspect.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8ACEE4162312650091438A /* AOPAspect.m */; };
-		9C8ACEEA1623131A0091438A /* BasicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8ACEE91623131A0091438A /* BasicTests.m */; };
+		9C8ACEEA1623131A0091438A /* TestsWithNSArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8ACEE91623131A0091438A /* TestsWithNSArray.m */; };
 		9C8ACEEC162315970091438A /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8ACEEB162315970091438A /* GHUnitIOS.framework */; };
+		9C8ACEF116231BCF0091438A /* TestsWithCustomClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8ACEF016231BCF0091438A /* TestsWithCustomClass.m */; };
+		9C8ACEF516231D4E0091438A /* CustomClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8ACEF416231D4E0091438A /* CustomClass.m */; };
+		9C8ACEF816231DED0091438A /* InheritedCustomClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8ACEF716231DED0091438A /* InheritedCustomClass.m */; };
+		9C8ACEFB16231E070091438A /* TestWithInheritedClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8ACEFA16231E070091438A /* TestWithInheritedClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +30,14 @@
 		9C8ACED3162311990091438A /* AOPAspect-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AOPAspect-Prefix.pch"; sourceTree = "<group>"; };
 		9C8ACEE4162312650091438A /* AOPAspect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOPAspect.m; sourceTree = "<group>"; };
 		9C8ACEE5162312650091438A /* AOPAspect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOPAspect.h; sourceTree = "<group>"; };
-		9C8ACEE91623131A0091438A /* BasicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasicTests.m; path = Tests/BasicTests.m; sourceTree = "<group>"; };
+		9C8ACEE91623131A0091438A /* TestsWithNSArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestsWithNSArray.m; path = Tests/TestsWithNSArray.m; sourceTree = "<group>"; };
 		9C8ACEEB162315970091438A /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GHUnitIOS.framework; sourceTree = "<group>"; };
+		9C8ACEF016231BCF0091438A /* TestsWithCustomClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestsWithCustomClass.m; path = Tests/TestsWithCustomClass.m; sourceTree = "<group>"; };
+		9C8ACEF316231D4E0091438A /* CustomClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomClass.h; path = Classes/CustomClass.h; sourceTree = "<group>"; };
+		9C8ACEF416231D4E0091438A /* CustomClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomClass.m; path = Classes/CustomClass.m; sourceTree = "<group>"; };
+		9C8ACEF616231DED0091438A /* InheritedCustomClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InheritedCustomClass.h; path = Classes/InheritedCustomClass.h; sourceTree = "<group>"; };
+		9C8ACEF716231DED0091438A /* InheritedCustomClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InheritedCustomClass.m; path = Classes/InheritedCustomClass.m; sourceTree = "<group>"; };
+		9C8ACEFA16231E070091438A /* TestWithInheritedClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestWithInheritedClass.m; path = Tests/TestWithInheritedClass.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +86,7 @@
 		9C8ACECB162311990091438A /* AOPAspect */ = {
 			isa = PBXGroup;
 			children = (
+				9C8ACEF216231D3A0091438A /* Classes */,
 				9C8ACEE7162312F30091438A /* Tests */,
 				9C8ACEE4162312650091438A /* AOPAspect.m */,
 				9C8ACEE5162312650091438A /* AOPAspect.h */,
@@ -97,9 +108,22 @@
 		9C8ACEE7162312F30091438A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				9C8ACEE91623131A0091438A /* BasicTests.m */,
+				9C8ACEF016231BCF0091438A /* TestsWithCustomClass.m */,
+				9C8ACEE91623131A0091438A /* TestsWithNSArray.m */,
+				9C8ACEFA16231E070091438A /* TestWithInheritedClass.m */,
 			);
 			name = Tests;
+			sourceTree = "<group>";
+		};
+		9C8ACEF216231D3A0091438A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				9C8ACEF316231D4E0091438A /* CustomClass.h */,
+				9C8ACEF416231D4E0091438A /* CustomClass.m */,
+				9C8ACEF616231DED0091438A /* InheritedCustomClass.h */,
+				9C8ACEF716231DED0091438A /* InheritedCustomClass.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,7 +188,11 @@
 			files = (
 				9C8ACED2162311990091438A /* main.m in Sources */,
 				9C8ACEE6162312650091438A /* AOPAspect.m in Sources */,
-				9C8ACEEA1623131A0091438A /* BasicTests.m in Sources */,
+				9C8ACEEA1623131A0091438A /* TestsWithNSArray.m in Sources */,
+				9C8ACEF116231BCF0091438A /* TestsWithCustomClass.m in Sources */,
+				9C8ACEF516231D4E0091438A /* CustomClass.m in Sources */,
+				9C8ACEF816231DED0091438A /* InheritedCustomClass.m in Sources */,
+				9C8ACEFB16231E070091438A /* TestWithInheritedClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
