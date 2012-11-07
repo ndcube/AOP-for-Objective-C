@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3A04D7B914CABE1D00A2852F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A04D7B814CABE1D00A2852F /* Foundation.framework */; };
 		3A04D7BF14CABE1D00A2852F /* AOPAspect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A04D7BE14CABE1D00A2852F /* AOPAspect.m */; };
-		3AF77A2414D716F200F5D77E /* AOPAspect.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A04D7BD14CABE1D00A2852F /* AOPAspect.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,7 +81,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AF77A2414D716F200F5D77E /* AOPAspect.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
